@@ -68,11 +68,19 @@ function shell(title, bodyHtml) {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>${escapeHtml(title)} | Capstone Projects</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/2510-capstones/style.css" />
 </head>
 <body>
   <header>
-    <a class="site-title" href="/2510-capstones/">Student Capstone Projects</a>
+    <div class="header-inner">
+      <a class="site-logo" href="/2510-capstones/">
+        <img src="/2510-capstones/assets/logo.png" alt="Fullstack Academy" height="36" />
+      </a>
+      <a class="site-title" href="/2510-capstones/">Student Capstone Projects</a>
+    </div>
   </header>
   <main>
 ${bodyHtml}
@@ -150,52 +158,85 @@ function buildDetail(p) {
 // ---------------------------------------------------------------------------
 
 const CSS = `
+:root {
+  --red: #EF2020;
+  --pink: #ff7a7a;
+  --black: #000000;
+  --white: #ffffff;
+  --grey: #f5f5f5;
+  --border: #e0e0e0;
+  --muted: #555555;
+}
+
 /* Reset */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  font-family: system-ui, -apple-system, sans-serif;
-  background: #f9f9fb;
-  color: #1a1a2e;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  background: var(--white);
+  color: var(--black);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
 header {
-  background: #1a1a2e;
-  padding: 1rem 2rem;
+  background: var(--white);
+  border-bottom: 3px solid var(--red);
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.site-logo img {
+  display: block;
+  height: 36px;
+  width: auto;
 }
 
 .site-title {
-  color: #e2e8f0;
+  color: var(--black);
   text-decoration: none;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   font-weight: 700;
-  letter-spacing: 0.02em;
+  letter-spacing: -0.01em;
 }
 
-.site-title:hover { color: #fff; }
+.site-title:hover { color: var(--red); }
 
 main {
   flex: 1;
   max-width: 1100px;
   margin: 0 auto;
-  padding: 2rem 1.5rem;
+  padding: 2.5rem 1.5rem;
   width: 100%;
 }
 
-h1 { margin-bottom: 1.5rem; font-size: 2rem; }
+h1 {
+  margin-bottom: 1.5rem;
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
 
 footer {
   text-align: center;
   padding: 1.5rem;
   font-size: 0.875rem;
-  color: #666;
-  border-top: 1px solid #ddd;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  background: var(--grey);
 }
 
-footer a { color: #4a6cf7; }
+footer a { color: var(--red); }
+footer a:hover { color: var(--pink); }
 
 /* Project grid */
 .project-grid {
@@ -205,59 +246,65 @@ footer a { color: #4a6cf7; }
 }
 
 .project-card {
-  background: #fff;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 4px;
   padding: 1.25rem;
-  transition: box-shadow 0.15s;
+  transition: border-color 0.15s, box-shadow 0.15s;
 }
 
 .project-card:hover {
-  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  border-color: var(--red);
+  box-shadow: 4px 4px 0 var(--red);
 }
 
-.project-card h2 { font-size: 1.1rem; margin-bottom: 0.35rem; }
-.project-card h2 a { color: #1a1a2e; text-decoration: none; }
-.project-card h2 a:hover { color: #4a6cf7; text-decoration: underline; }
+.project-card h2 { font-size: 1.1rem; margin-bottom: 0.35rem; font-weight: 700; }
+.project-card h2 a { color: var(--black); text-decoration: none; }
+.project-card h2 a:hover { color: var(--red); }
 
-.student-name { font-weight: 600; color: #4a6cf7; margin-bottom: 0.4rem; }
+.student-name { font-weight: 600; color: var(--red); margin-bottom: 0.4rem; font-size: 0.9rem; }
 
-.tagline { color: #555; font-size: 0.9rem; margin-bottom: 0.5rem; }
+.tagline { color: var(--muted); font-size: 0.9rem; margin-bottom: 0.5rem; }
 
 .tags {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
-  margin-top: 0.5rem;
+  margin-top: 0.75rem;
 }
 
 .tags li {
-  background: #eef0fb;
-  color: #4a6cf7;
-  font-size: 0.75rem;
-  padding: 0.2rem 0.55rem;
-  border-radius: 999px;
+  background: var(--black);
+  color: var(--white);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 2px;
 }
 
 /* Detail page */
 .back-link {
   display: inline-block;
-  margin-bottom: 1rem;
-  color: #4a6cf7;
+  margin-bottom: 1.25rem;
+  color: var(--red);
   text-decoration: none;
   font-size: 0.9rem;
+  font-weight: 600;
 }
 
-.back-link:hover { text-decoration: underline; }
+.back-link:hover { color: var(--pink); text-decoration: underline; }
 
 .description {
-  margin: 1rem 0;
-  line-height: 1.65;
+  margin: 1.25rem 0;
+  line-height: 1.7;
   color: #333;
+  max-width: 680px;
 }
 
-.empty { font-size: 1.1rem; color: #555; }
+.empty { font-size: 1.1rem; color: var(--muted); }
 `.trim();
 
 // ---------------------------------------------------------------------------
