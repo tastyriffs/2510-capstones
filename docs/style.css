@@ -179,9 +179,11 @@ footer a:hover { color: var(--pink); }
 
 .detail-meta { flex: 1; }
 .detail-meta h1 { margin-bottom: 0.3rem; }
-.detail-meta .student-name { margin-bottom: 0.4rem; }
+.detail-meta .student-name { margin-bottom: 0.4rem; font-size: 1.2rem; }
 .detail-meta .tagline { margin-bottom: 0.75rem; }
 .detail-meta p + p { margin-top: 0.35rem; }
+.detail-meta a { color: var(--red); }
+.detail-meta a:hover { color: var(--pink); }
 
 .description {
   margin-bottom: 1.5rem;
@@ -209,3 +211,25 @@ footer a:hover { color: var(--pink); }
 }
 
 .empty { font-size: 1.1rem; color: var(--muted); }
+
+/* Contact links */
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.25rem;
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.contact-links a {
+  color: var(--red);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.contact-links a:hover {
+  color: var(--pink);
+  text-decoration: underline;
+}

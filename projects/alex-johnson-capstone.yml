@@ -19,6 +19,11 @@ repo: "https://github.com/alexjohnson/recipe-finder"
 # Link to a live demo (optional)
 demo: "https://recipe-finder.vercel.app"
 
+email: "alex@example.com"
+website: "https://alexjohnson.dev"
+linkedin: "alexjohnson"
+github: "alexjohnson"
+
 # Short technology tags (optional, max ~5)
 tags:
   - React

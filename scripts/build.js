@@ -161,6 +161,17 @@ function buildDetail(p) {
   const descLine = p.description
     ? `<div class="description"><p>${escapeHtml(p.description)}</p></div>`
     : "";
+
+  const contactLinks = [
+    p.email    ? `<a href="mailto:${escapeHtml(p.email)}" aria-label="Email">&#9993; ${escapeHtml(p.email)}</a>` : null,
+    p.website  ? `<a href="${escapeHtml(p.website)}" target="_blank" rel="noopener noreferrer" aria-label="Website">&#127760; ${escapeHtml(p.website)}</a>` : null,
+    p.linkedin ? `<a href="https://linkedin.com/in/${escapeHtml(p.linkedin)}" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in/${escapeHtml(p.linkedin)}</a>` : null,
+    p.twitter  ? `<a href="https://x.com/${escapeHtml(p.twitter.replace(/^@/, ""))}" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter">@${escapeHtml(p.twitter.replace(/^@/, ""))}</a>` : null,
+    p.github   ? `<a href="https://github.com/${escapeHtml(p.github)}" target="_blank" rel="noopener noreferrer" aria-label="GitHub">github.com/${escapeHtml(p.github)}</a>` : null,
+  ].filter(Boolean);
+  const contactSection = contactLinks.length
+    ? `<div class="contact-links">${contactLinks.join("")}</div>`
+    : "";
   const headshotImg = p._headshot
     ? `<img class="detail-headshot" src="/2510-capstones/assets/headshots/${escapeHtml(p._headshot)}" alt="${escapeHtml(p.student)}" />`
     : "";
@@ -185,7 +196,8 @@ function buildDetail(p) {
       </div>
     </div>
     ${descLine}
-    ${screenshotFig}`;
+    ${screenshotFig}
+    ${contactSection}`;
 
   return shell(p.title, body);
 }
@@ -376,9 +388,11 @@ footer a:hover { color: var(--pink); }
 
 .detail-meta { flex: 1; }
 .detail-meta h1 { margin-bottom: 0.3rem; }
-.detail-meta .student-name { margin-bottom: 0.4rem; }
+.detail-meta .student-name { margin-bottom: 0.4rem; font-size: 1.2rem; }
 .detail-meta .tagline { margin-bottom: 0.75rem; }
 .detail-meta p + p { margin-top: 0.35rem; }
+.detail-meta a { color: var(--red); }
+.detail-meta a:hover { color: var(--pink); }
 
 .description {
   margin-bottom: 1.5rem;
@@ -406,6 +420,28 @@ footer a:hover { color: var(--pink); }
 }
 
 .empty { font-size: 1.1rem; color: var(--muted); }
+
+/* Contact links */
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.25rem;
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.contact-links a {
+  color: var(--red);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.contact-links a:hover {
+  color: var(--pink);
+  text-decoration: underline;
+}
 `.trim();
 
 // ---------------------------------------------------------------------------

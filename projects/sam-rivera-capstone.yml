@@ -14,6 +14,11 @@ repo: "https://github.com/samrivera/budget-tracker"
 
 demo: "https://budget-tracker-demo.netlify.app"
 
+email: "sam@example.com"
+linkedin: "samrivera"
+twitter: "@samrivera"
+github: "samrivera"
+
 tags:
   - React
   - PostgreSQL

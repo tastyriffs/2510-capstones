@@ -18,6 +18,13 @@ repo: ""           # https://github.com/your-username/your-repo
 
 demo: ""           # https://your-live-demo.example.com
 
+# Contact info (all optional — omitted from the page if blank)
+email: ""          # your@email.com
+website: ""        # https://yoursite.com
+linkedin: ""       # your LinkedIn username (not the full URL)
+twitter: ""        # your handle, with or without the @
+github: ""         # your GitHub username
+
 # Images — add files to the headshots/ and screenshots/ folders in the repo root.
 # Name them: firstname_lastname_headshot.png and firstname_lastname_screenshot.png
 # The build script picks them up automatically — no changes needed here.
