@@ -1,0 +1,31 @@
+# Copy this file, rename it to firstname-lastname-capstone.yml (use hyphens, no spaces),
+# and place it in the projects/ folder. Then open a pull request!
+#
+# Required fields: title, student
+# All other fields are optional but encouraged.
+
+title: "mosquito_predictor"          # Your project title
+
+student: "Justin Zwack"        # Your full name
+
+tagline: "A machine learning model that predicts high mosquito abundance at trap sites across Washington, DC using weather, topography, and seasonal features."        # One sentence - shown on the list page
+
+# Replace the example text below with your own description.
+description: This project uses XGBoost to classify mosquito trap collections as High abundance (≥ 23 females collected) or Low abundance, based on data from DC mosquito trap sites merged with NOAA weather records and LiDAR-derived terrain data.
+
+repo: "https://github.com/tastyriffs/mosquito_predictor"           # https://github.com/your-username/your-repo
+
+demo: "https://youtu.be/eD_NcRGj_2o"           # https://your-live-demo.example.com
+
+# Contact info (all optional - omitted from the page if blank)
+email: ""          # your@email.com
+website: ""        # https://yoursite.com
+linkedin: ""       # your LinkedIn username (not the full URL)
+twitter: ""        # your handle, with or without the @
+github: ""         # your GitHub username
+
+# Images - add files to the headshots/ and screenshots/ folders in the repo root.
+# Name them: firstname-lastname-headshot.png and firstname-lastname-screenshot.png
+# The build script picks them up automatically - no changes needed here.
+
+tags: [Python, XGBoost, scikit-learn, Pandas, Rasterio, Folium, Machine Learning]           # e.g. [React, Node.js]
